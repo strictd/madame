@@ -1,6 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConfigApp } from '../config/config.app';
 import { Http, RequestOptions } from '@angular/http';
 import { JwtHelper, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MadameService } from './madame-service';
@@ -11,7 +10,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     headerName: 'Authorization',
     headerPrefix: 'bearer',
     tokenName: 'jwt',
-    tokenGetter: (() => localStorage.getItem('jwt') || ConfigApp.getCookie('jwt')),
+    tokenGetter: (() => localStorage.getItem('jwt')),
     // globalHeaders: [{ 'Content-Type': 'application/json' }],
     noJwtError: true
   }), http, options);
