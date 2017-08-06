@@ -1,0 +1,8 @@
+{
+  "name": "@strictd/madame",
+  "version": "1.0.0",
+  "description": "ngx http proxy library with jwt capability",
+  "main": "index.ts",
+  "author": "Gary Taylor gary@strictdev.com",
+  "license": "MIT"
+}
