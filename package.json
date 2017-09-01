@@ -1,6 +1,6 @@
 {
   "name": "@strictd/madame",
-  "version": "2.2.1",
+  "version": "2.2.4",
   "description": "ngx http proxy library with jwt capability",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -9,9 +9,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/strictd/madame.git"
-  },
-  "scripts":{
-    "prepublish": "tsc -p ./ --outDir dist/"
   },
   "dependencies": {
     "@angular/common": "^4.0.0",
