@@ -2,13 +2,22 @@
   "name": "@strictd/madame",
   "version": "1.1.0",
   "description": "ngx http proxy library with jwt capability",
-  "main": "index.ts",
+  "main": "./dist/index.ts",
+  "types": "./dist/index.d.ts",
   "author": "Gary Taylor gary@strictdev.com",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strictd/madame.git"
+  },
+  "scripts":{
+    "prepublish": "tsc -p ./ --outDir dist/"
+  },
   "dependencies": {
+    "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0",
     "@angular/http": "^4.0.0",
     "angular2-jwt": "^0.2.3",
-    "rxjs": "^5.4.2"
+    "rxjs": "^5.0.0"
   }
 }

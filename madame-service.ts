@@ -3,8 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
 import { AuthHttp } from 'angular2-jwt';
-import { IServerInfo, IServerList, IHeaderList, IMadameQuery,
-         IMadameQue } from './models/madame';
+import { IServerInfo, IServerList, IHeaderList, IMadameQuery, IMadameQue } from './models/madame';
 
 import 'rxjs/add/operator/share';
 
