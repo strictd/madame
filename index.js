@@ -42,3 +42,4 @@ MadameModule = MadameModule_1 = __decorate([
 ], MadameModule);
 exports.MadameModule = MadameModule;
 var MadameModule_1;
+//# sourceMappingURL=index.js.map

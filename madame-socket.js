@@ -164,3 +164,4 @@ MadameSocket = __decorate([
     core_1.Injectable()
 ], MadameSocket);
 exports.MadameSocket = MadameSocket;
+//# sourceMappingURL=madame-socket.js.map

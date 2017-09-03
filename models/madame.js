@@ -18,3 +18,4 @@ exports.IMadameQuery = IMadameQuery;
 class IMadameQue {
 }
 exports.IMadameQue = IMadameQue;
+//# sourceMappingURL=madame.js.map
