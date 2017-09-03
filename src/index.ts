@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Http, RequestOptions } from '@angular/http';
+import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { JwtHelper, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MadameService } from './madame-service';
 import { MadameSocket } from './madame-socket';
@@ -17,7 +17,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 }
 
 @NgModule({
-  imports: [ CommonModule ],
+  imports: [ CommonModule, HttpModule ],
   exports: [ CommonModule ]
 })
 export class MadameModule {
