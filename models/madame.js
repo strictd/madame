@@ -1,38 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var IServerInfo = (function () {
-    function IServerInfo() {
-    }
-    return IServerInfo;
-}());
+class IServerInfo {
+}
 exports.IServerInfo = IServerInfo;
-var IServerList = (function () {
-    function IServerList() {
-    }
-    return IServerList;
-}());
+class IServerList {
+}
 exports.IServerList = IServerList;
-var IHeaderInfo = (function () {
-    function IHeaderInfo() {
-    }
-    return IHeaderInfo;
-}());
+class IHeaderInfo {
+}
 exports.IHeaderInfo = IHeaderInfo;
-var IHeaderList = (function () {
-    function IHeaderList() {
-    }
-    return IHeaderList;
-}());
+class IHeaderList {
+}
 exports.IHeaderList = IHeaderList;
-var IMadameQuery = (function () {
-    function IMadameQuery() {
-    }
-    return IMadameQuery;
-}());
+class IMadameQuery {
+}
 exports.IMadameQuery = IMadameQuery;
-var IMadameQue = (function () {
-    function IMadameQue() {
-    }
-    return IMadameQue;
-}());
+class IMadameQue {
+}
 exports.IMadameQue = IMadameQue;
