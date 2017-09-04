@@ -162,7 +162,6 @@ let MadameService = class MadameService {
     }
     updateRunningCount(by) {
         this._runningCount += by;
-        console.log('Counting', this._runningCount);
         if (this._runningCount === 1) {
             this._running.next(true);
         }
