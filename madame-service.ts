@@ -120,44 +120,75 @@ export class MadameService {
 
   get(url: string, server = 'main', headers?: IHeaderList): Observable<Response> {
     const serverInfo: IServerInfo = this.getServer(server) || this.initServer();
-    return this.http.get(`${serverInfo.url}${url}`, {headers: this.defaultHeaders(headers)});
+    this.updateRunningCount(1);
+    return this.http.get(`${serverInfo.url}${url}`, {headers: this.defaultHeaders(headers)}).finally(() => {
+      this.updateRunningCount(-1);
+    });
   }
 
   post(url: string, data: Object, server = 'main', headers?: IHeaderList): Observable<Response> {
     const serverInfo: IServerInfo = this.getServer(server) || this.initServer();
-    return this.http.post(`${serverInfo.url}${url}`, JSON.stringify(data), {headers: this.defaultHeaders(headers)});
+    this.updateRunningCount(1);
+    return this.http.post(`${serverInfo.url}${url}`, JSON.stringify(data), {headers: this.defaultHeaders(headers)}).finally(() => {
+      this.updateRunningCount(-1);
+    });
   }
 
   put(url: string, data: Object, server = 'main', headers?: IHeaderList): Observable<Response> {
     const serverInfo: IServerInfo = this.getServer(server) || this.initServer();
-    return this.http.put(`${serverInfo.url}${url}`, JSON.stringify(data), {headers: this.defaultHeaders(headers)});
+    this.updateRunningCount(1);
+    return this.http.put(`${serverInfo.url}${url}`, JSON.stringify(data), {headers: this.defaultHeaders(headers)}).finally(() => {
+      this.updateRunningCount(-1);
+    });
   }
 
   delete(url: string, server = 'main', headers?: IHeaderList): Observable<Response> {
     const serverInfo: IServerInfo = this.getServer(server) || this.initServer();
-    return this.http.delete(`${serverInfo.url}${url}`, {headers: this.defaultHeaders(headers)});
+    this.updateRunningCount(1);
+    return this.http.delete(`${serverInfo.url}${url}`, {headers: this.defaultHeaders(headers)}).finally(() => {
+      this.updateRunningCount(-1);
+    });
   }
 
   authGet(url: string, server = 'main', headers?: IHeaderList): Observable<Response> {
     const serverInfo: IServerInfo = this.getServer(server) || this.initServer();
-    return this.authHttp.get(`${serverInfo.url}${url}`, {headers: this.defaultHeaders(headers)});
+    this.updateRunningCount(1);
+    return this.authHttp.get(`${serverInfo.url}${url}`, {headers: this.defaultHeaders(headers)}).finally(() => {
+      this.updateRunningCount(-1);
+    });
   }
 
   authPost(url: string, data: Object, server = 'main', headers?: IHeaderList): Observable<Response> {
     const serverInfo: IServerInfo = this.getServer(server) || this.initServer();
-    return this.authHttp.post(`${serverInfo.url}${url}`, JSON.stringify(data), {headers: this.defaultHeaders(headers)});
+    this.updateRunningCount(1);
+    return this.authHttp.post(`${serverInfo.url}${url}`, JSON.stringify(data), {headers: this.defaultHeaders(headers)}).finally(() => {
+      this.updateRunningCount(-1);
+    });
   }
 
   authPut(url: string, data: Object, server = 'main', headers?: IHeaderList): Observable<Response> {
     const serverInfo: IServerInfo = this.getServer(server) || this.initServer();
-    return this.authHttp.put(`${serverInfo.url}${url}`, JSON.stringify(data), {headers: this.defaultHeaders(headers)});
+    this.updateRunningCount(1);
+    return this.authHttp.put(`${serverInfo.url}${url}`, JSON.stringify(data), {headers: this.defaultHeaders(headers)}).finally(() => {
+      this.updateRunningCount(-1);
+    });
   }
 
   authDelete(url: string, server = 'main', headers?: IHeaderList): Observable<Response> {
     const serverInfo: IServerInfo = this.getServer(server) || this.initServer();
-    return this.authHttp.delete(`${serverInfo.url}${url}`, {headers: this.defaultHeaders(headers)});
+    this.updateRunningCount(1);
+    return this.authHttp.delete(`${serverInfo.url}${url}`, {headers: this.defaultHeaders(headers)}).finally(() => {
+      this.updateRunningCount(-1);
+    });
   }
 
+  updateRunningCount(by: number) {
+    this._runningCount += by;
+    console.log('Counting', this._runningCount);
+    if (this._runningCount === 1) {
+      this._running.next(true);
+    } else if (this._runningCount === 0) { this._running.next(false); }
+  }
 
   createAuthQueryFromMethod(query: IMadameQuery): Observable<Response> {
     let url = query.url;
@@ -259,13 +290,6 @@ export class MadameService {
         this.reauthObservable = null;
       }
     );
-  }
-
-  updateRunningCount(by: number) {
-    this._runningCount += by;
-    if (this._runningCount === 1) {
-      this._running.next(true);
-    } else if (this._runningCount === 0) { this._running.next(false); }
   }
 
 
