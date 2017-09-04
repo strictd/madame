@@ -182,8 +182,9 @@ export class MadameService {
     });
   }
 
-  updateRunningCount(by: number) {
+  updateRunningCount(by: number): void {
     this._runningCount += by;
+    if (!this._running) { return; }
     if (this._runningCount === 1) {
       this._running.next(true);
     } else if (this._runningCount === 0) { this._running.next(false); }
